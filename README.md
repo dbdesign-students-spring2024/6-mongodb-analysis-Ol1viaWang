@@ -66,6 +66,7 @@ db.listings.find().limit(2)
 
 > Results:
 
+```
 [
   {
     _id: ObjectId('660b27b97e28b59b539465bf'),
@@ -92,6 +93,7 @@ db.listings.find().limit(2)
     review_scores_rating: 4.79
   }
 ]
+```
 
 Through looking at the results, we can see which fields are included in the data set clearly: `name`, `host_id`, `host_name`, `host_is_superhost`, `neighbourhood`, `neighbourhood_cleansed`, `beds`, `price`, and  `review_scores_rating`.
 
@@ -105,6 +107,7 @@ db.listings.find().limit(10).pretty()
 
 > Results:
 
+```
 [
   {
     _id: ObjectId('660b27b97e28b59b539465bf'),
@@ -143,10 +146,11 @@ db.listings.find().limit(10).pretty()
     review_scores_rating: 4.85
   }
 ]
+```
 
 Similar to the last question, through looking at the results, we can see which fields are included in the data set clearly: `name`, `host_id`, `host_name`, `host_is_superhost`, `neighbourhood`, `neighbourhood_cleansed`, `beds`, `price`, and  `review_scores_rating`. Besides, although only up to the first three results are showed here, I observe that even for the same room type, prices still varies a lot. For example, a 1B1B named `Rental unit in Chicago` at West Ridge is only $28 per day, but another 1B1B called `Boutique hotel in Chicago` at `Lincoln Park` costs $329 per day. Therefore, I conclude that the price of an AirBnB may largely depend on the location of it.
 
-3. choose two hosts (`host_id` = 33004 and `host_id` = 6088938) who are superhosts ( `host_is_superhost` = "t"), and show all of the listings offered by both of the two hosts
+3. choose two hosts (`host_id` = 33004 and `host_id` = 6088938) who are superhosts ( `host_is_superhost` = `t`), and show all of the listings offered by both of the two hosts
    - only show the `name`, `price`, `neighbourhood`, `host_name`, and `host_is_superhost` for each result
 
 - Goal: Retrieve listings hosted by 33004 and 6088938. Only includes `name`, `price`, `neighbourhood`, `host_name`, and `host_is_superhost` in the results. The `_id` field is explicitly removed.
@@ -170,6 +174,7 @@ db.listings.find(
 
 > Results:
 
+```
 [
   {
     name: 'Rental unit in Chicago · ★4.79 · 2 bedrooms · 2 beds · 1 bath',
@@ -193,6 +198,7 @@ db.listings.find(
     price: '$328.00'
   }
 ]
+```
 
 Among the 3 AirBnBs above, we can see that two of them are called `At Home Inn`, but they have different ratings. This may be due to differences in the quality and amenities offered even though they may owned by the same person.
 
@@ -206,9 +212,11 @@ db.listings.distinct("host_name")
 
 > Results: 
 
+```
 [
   '2 Level Up', '747 Lofts Concierge', 'A'... 1474 more items
 ]
+```
 
 When I imported the data into database, it showed that it imported 5904 documents. However, when I retrieve distinct values for a `host_name` field, I found out that there are only 1474 items, which indicates that multiple AirBnB share the same name. There may be lots of AirBnB chains and they may be owned by the same person / company. 
 
@@ -235,6 +243,7 @@ db.listings.find(
 
 > Results:
 
+```
 [
   {
     name: 'Home in Chicago · ★5.0 · 3 bedrooms · 3 beds · 3 baths',
@@ -255,6 +264,7 @@ db.listings.find(
     review_scores_rating: 5
   }
 ]
+```
 
 It's not hard to tell that higher the ratings, higher the price. In addition, as we look closely and see more results from this query, I found out that the prices of AirBnBs located at `Lincoln Park` are very high, so I speculate that `Lincoln Park` might be one of the best neighborhood, the city center, or a famous tourist attraction in Chicago. 
 
@@ -284,11 +294,13 @@ db.listings.aggregate([
 
 > Results:
 
+```
 [
   { host_name: 'Christine', number_of_listings: 3, host_id: 480309366 },
   { host_name: 'Rachel', number_of_listings: 9, host_id: 461544464 },
   { host_name: 'Lewis', number_of_listings: 3, host_id: 37927147 }
 ]
+```
 
 There are many hosts have multiple listings. 
 
@@ -326,11 +338,13 @@ db.listings.aggregate([
 
 > Results:
 
+```
 [
   { average_rating: 5, neighbourhood_cleansed: 'South Deering' },
   { average_rating: 4.9275, neighbourhood_cleansed: 'Hegewisch' },
   { average_rating: 4.9, neighbourhood_cleansed: 'Mount Greenwood' }
 ]
+```
 
 Observing that `South Deering` neighbourhood has the highest rating, I decided to search for this area. Surprisingly, I found out that this area the average household income is 43% below the average for the city of Chicago as a whole and this is not one of the best neighborhoods in Chicago. Therefore, the average ratings may not represent everything. There might only be 1 AirBnB in `South Deering` and basically no tourists choose to live here. 
 
