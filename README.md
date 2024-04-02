@@ -4,7 +4,7 @@
 
 ### Original Dataset 
 
-It is the AirBnB listings data for Boston, Massachusetts, United States, [listings.csv file](./data/listings.csv). This data comes from [AirBnB listings data](http://insideairbnb.com/get-the-data/). The original data file was in CSV. 
+It is the AirBnB listings data for Boston, Massachusetts, United States, [listings.csv](./data/listings.csv). This data comes from [AirBnB listings](http://insideairbnb.com/get-the-data/). The original data file was in CSV. 
 
 > the first 10 rows of the raw data from the original data file
 
@@ -148,7 +148,7 @@ db.listings.find().limit(10).pretty()
 ]
 ```
 
-Similar to the last question, through looking at the results, we can see which fields are included in the data set clearly: `name`, `host_id`, `host_name`, `host_is_superhost`, `neighbourhood`, `neighbourhood_cleansed`, `beds`, `price`, and  `review_scores_rating`. Besides, although only up to the first three results are showed here, I observe that even for the same room type, prices still varies a lot. For example, a 1B1B named `Rental unit in Chicago` at West Ridge is only $28 per day, but another 1B1B called `Boutique hotel in Chicago` at `Lincoln Park` costs $329 per day. Therefore, I conclude that the price of an AirBnB may largely depend on the location of it.
+Similar to the last question, through looking at the results, we can see which fields are included in the data set clearly: `name`, `host_id`, `host_name`, `host_is_superhost`, `neighbourhood`, `neighbourhood_cleansed`, `beds`, `price`, and  `review_scores_rating`. Besides, although only the first three results are shown here, I observe that even for the same room type, prices still varies a lot. For example, the 1B1B named `Rental unit in Chicago` at West Ridge is only $28 per day, but the other 1B1B called `Boutique hotel in Chicago` at `Lincoln Park` costs $329 per day. Therefore, I conclude that the price of an AirBnB may largely dependent on the location of it.
 
 3. choose two hosts (`host_id` = 33004 and `host_id` = 6088938) who are superhosts ( `host_is_superhost` = `t`), and show all of the listings offered by both of the two hosts
    - only show the `name`, `price`, `neighbourhood`, `host_name`, and `host_is_superhost` for each result
@@ -266,7 +266,7 @@ db.listings.find(
 ]
 ```
 
-It's not hard to tell that higher the ratings, higher the price. In addition, as we look closely and see more results from this query, I found out that the prices of AirBnBs located at `Lincoln Park` are very high, so I speculate that `Lincoln Park` might be one of the best neighborhood, the city center, or a famous tourist attraction in Chicago. 
+It's not hard to tell that the higher the ratings, the higher the price. In addition, as we look closely and see more results from this query, I found that the prices of AirBnBs located at `Lincoln Park` are very high, so I speculate that `Lincoln Park` might be one of the best neighborhoods, the city center, or a famous tourist attraction in Chicago. 
 
 6. show the number of listings per host
 
@@ -302,7 +302,7 @@ db.listings.aggregate([
 ]
 ```
 
-There are many hosts have multiple listings. 
+There are many hosts that have multiple listings. 
 
 7. find the average `review_scores_rating` per neighborhood, and only show those that are 4 or above, sorted in descending order of rating
 
@@ -346,6 +346,6 @@ db.listings.aggregate([
 ]
 ```
 
-Observing that `South Deering` neighbourhood has the highest rating, I decided to search for this area. Surprisingly, I found out that this area the average household income is 43% below the average for the city of Chicago as a whole and this is not one of the best neighborhoods in Chicago. Therefore, the average ratings may not represent everything. There might only be 1 AirBnB in `South Deering` and basically no tourists choose to live here. 
+Observing that `South Deering` neighbourhood has the highest rating, I decided to search for this area. Surprisingly, I found out that the average household income of this neighbourhood is 43% below the average for the city of Chicago as a whole and clearly this is not one of the best neighborhoods in Chicago. Therefore, the average ratings may not represent everything. There might only be 1 or few AirBnBs in `South Deering` and basically no tourists choose to live here. 
 
 
