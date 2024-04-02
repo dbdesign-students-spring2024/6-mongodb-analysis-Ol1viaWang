@@ -4,7 +4,7 @@
 
 ### Original Dataset 
 
-It is the AirBnB listings data for Boston, Massachusetts, United States, [listings.csv](./data/listings.csv). This data comes from [AirBnB listings](http://insideairbnb.com/get-the-data/). The original data file was in CSV. 
+It is the AirBnB listings data for Chicago, Illinois, United States, [listings.csv](./data/listings.csv). This data comes from [AirBnB listings](http://insideairbnb.com/get-the-data/). The original data file was in CSV. 
 
 > the first 10 rows of the raw data from the original data file
 
