@@ -25,7 +25,7 @@ Since there are more than 10 fields in the original data set, I only displayed t
 
 ### Data Scrubbing
 
-1. The original data contains too much fields and some of them (such as 'description', 'bathrooms', and 'bedroom') might not be so useful as there is nothing in these fields. In order to easier analyze the data set, I chose to only include several useful and meaningful fields in the scrubbed version: `name`, `host_id`, `host_name`, `host_is_superhost`, `neighbourhood`, `neighbourhood_cleansed`, `beds`, `price`, and  `review_scores_rating`.
+1. The original data contains too much fields and some of them (such as `description`, `bathrooms`, and `bedroom`) might not be so useful as there is nothing in these fields. In order to easier analyze the data set, I chose to only include several useful and meaningful fields in the scrubbed version: `name`, `host_id`, `host_name`, `host_is_superhost`, `neighbourhood`, `neighbourhood_cleansed`, `beds`, `price`, and  `review_scores_rating`.
 
 ``` 
 leave_fields = ['name', 'host_id', 'host_name', 'host_is_superhost', 'neighbourhood', 'neighbourhood_cleansed', 'beds', 'price', 'review_scores_rating']
@@ -97,7 +97,7 @@ db.listings.find().limit(2)
 
 Through looking at the results, we can see which fields are included in the data set clearly: `name`, `host_id`, `host_name`, `host_is_superhost`, `neighbourhood`, `neighbourhood_cleansed`, `beds`, `price`, and  `review_scores_rating`.
 
-2. show exactly 10 documents in any order, but "prettyprint" in easier to read format.
+2. show exactly 10 documents in any order, but "prettyprint" in easier to read format
 
 - Goal: Retrieve 10 documents from the collection listings, displaying the result in a easier-to-read format
 
@@ -148,12 +148,12 @@ db.listings.find().limit(10).pretty()
 ]
 ```
 
-Similar to the last question, through looking at the results, we can see which fields are included in the data set clearly: `name`, `host_id`, `host_name`, `host_is_superhost`, `neighbourhood`, `neighbourhood_cleansed`, `beds`, `price`, and  `review_scores_rating`. Besides, although only the first three results are shown here, I observe that even for the same room type, prices still varies a lot. For example, the 1B1B named `Rental unit in Chicago` at West Ridge is only $28 per day, but the other 1B1B called `Boutique hotel in Chicago` at `Lincoln Park` costs $329 per day. Therefore, I conclude that the price of an AirBnB may largely dependent on the location of it.
+Similar to the last question, through looking at the results, we can see which fields are included in the data set clearly: `name`, `host_id`, `host_name`, `host_is_superhost`, `neighbourhood`, `neighbourhood_cleansed`, `beds`, `price`, and  `review_scores_rating`. Besides, although only the first three results are shown here, I observe that even for the same room type, prices still varies a lot. For example, the 1B1B named `Rental unit in Chicago` at West Ridge is only $28 per day, but the other 1B1B called `Boutique hotel in Chicago` at `Lincoln Park` costs $329 per day. Therefore, I conclude that the price of an AirBnB may largely depend on the location of it.
 
-3. choose two hosts (`host_id` = 33004 and `host_id` = 6088938) who are superhosts ( `host_is_superhost` = `t`), and show all of the listings offered by both of the two hosts
+3. choose two hosts (`host_id` = `33004` and `host_id` = `6088938`) who are superhosts ( `host_is_superhost` = `t`), and show all of the listings offered by both of the two hosts
    - only show the `name`, `price`, `neighbourhood`, `host_name`, and `host_is_superhost` for each result
 
-- Goal: Retrieve listings hosted by 33004 and 6088938. Only includes `name`, `price`, `neighbourhood`, `host_name`, and `host_is_superhost` in the results. The `_id` field is explicitly removed.
+- Goal: Retrieve listings hosted by `33004` and `6088938`. Only includes `name`, `price`, `neighbourhood`, `host_name`, and `host_is_superhost` in the results. The `_id` field is explicitly removed.
 
 ```mongodb
 db.listings.find(
@@ -218,12 +218,12 @@ db.listings.distinct("host_name")
 ]
 ```
 
-When I imported the data into database, it showed that it imported 5904 documents. However, when I retrieve distinct values for a `host_name` field, I found out that there are only 1474 items, which indicates that multiple AirBnB share the same name. There may be lots of AirBnB chains and they may be owned by the same person / company. 
+When I imported the data into database, it showed that it imported 5904 documents. However, when I retrieve distinct values for `host_name` field, I found out that there are only 1474 items, which indicates that multiple AirBnB share the same name. There may be lots of AirBnB chains and they may be owned by the same person / company. 
 
 5. find all of the places that have more than 2 `beds` in `neighbourhood_group_cleansed` = `Lincoln Park`, ordered by `review_scores_rating` descending
    - only show the `name`, `beds`, `review_scores_rating`, and `price`
 
-- Goal: Retrieve listings that have more than 2 `beds` in `neighbourhood_group_cleansed` = `Lincoln Park`, sort the listings in descending order by `review_scores_rating` field. Only includes `name`, `beds`, `review_scores_rating`, and `price` in the results. The `_id` field is explicitly removed.
+- Goal: Retrieve listings that have more than 2 `beds` in `neighbourhood_group_cleansed` = `Lincoln Park`, and sort the listings in descending order by `review_scores_rating` field. Only includes `name`, `beds`, `review_scores_rating`, and `price` in the results. The `_id` field is explicitly removed.
 
 ```mongodb
 db.listings.find(
@@ -306,7 +306,7 @@ There are many hosts that have multiple listings.
 
 7. find the average `review_scores_rating` per neighborhood, and only show those that are 4 or above, sorted in descending order of rating
 
-- Goal: Calculate the average `review_scores_rating` per neighborhood, without including neighborhoods with average ratings lower than 4. Sort the data by the average rating in descending order. 
+- Goal: Calculate the average `review_scores_rating` per neighborhood, without including neighborhoods with average ratings lower than 4. Sort the data by the average ratings in descending order. 
 
 ```mongodb
 db.listings.aggregate([
