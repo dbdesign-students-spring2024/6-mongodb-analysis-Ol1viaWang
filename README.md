@@ -58,7 +58,7 @@ if field in leave_fields:
 
 1. show exactly two documents from the listings collection in any order
 
-- Goal: Retrieve 2 documents from the collection listings
+- Goal: Retrieve 2 documents from the collection listings.
 
 ```mongodb
 db.listings.find().limit(2)
@@ -99,7 +99,7 @@ Through looking at the results, we can see which fields are included in the data
 
 2. show exactly 10 documents in any order, but "prettyprint" in easier to read format
 
-- Goal: Retrieve 10 documents from the collection listings, displaying the result in a easier-to-read format
+- Goal: Retrieve 10 documents from the collection listings, displaying the result in a easier-to-read format.
 
 ```mongodb
 db.listings.find().limit(10).pretty()
